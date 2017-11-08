@@ -4,6 +4,7 @@ var projectName		= __dirname.split('/')[__dirname.split('/').length-1];
 
 var gulp			= require('gulp');
 var sass			= require('gulp-sass');
+var postcss 		= require('gulp-postcss');
 var copy			= require('gulp-copy');
 var path			= require('path');
 var tinypng			= require('gulp-tinypng');
@@ -11,6 +12,7 @@ var concat			= require('gulp-concat');
 var minify			= require('gulp-minifier');
 var clean 			= require('gulp-clean');
 var autoprefixer 	= require('gulp-autoprefixer');
+var tailwindcss 	= require('tailwindcss');
 var browserSync		= require('browser-sync').create();
 
 gulp.task('clean', function() {
@@ -26,6 +28,14 @@ gulp.task('sync', ['clean'], function () {
 gulp.task('sass', ['sync'], function () {
 	return 	gulp.src('./wp-theme/source/stylesheets/master.scss')
 			.pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
+			.pipe(gulp.dest('./wp-theme/build/stylesheets'));
+});
+
+gulp.task('postcss', ['sass'], function () {
+	return 	gulp.src('./wp-theme/build/stylesheets/master.css')
+			.pipe(postcss([
+				tailwindcss('./wp-theme/source/scripts/tailwind.js'),
+			]))
 			.pipe(gulp.dest('./wp-theme/build/stylesheets'));
 });
 
@@ -101,7 +111,7 @@ gulp.task('watch', ['default'], function() {
 	gulp.watch("./wp-theme/source/**/*.js", ['default']);
 });
 
-gulp.task('default', ['sass', 'plugins', 'scripts', 'stylesheets', 'sync', 'fonts'], function (done) {
+gulp.task('default', ['sass', 'postcss', 'plugins', 'scripts', 'stylesheets', 'sync', 'fonts'], function (done) {
 	browserSync.reload();
     done();
 });
