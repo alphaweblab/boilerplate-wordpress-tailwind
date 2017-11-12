@@ -66,7 +66,7 @@ gulp.task('scripts', ['plugins'], function () {
 	        .pipe(gulp.dest('./wp-theme/build/scripts'));
 });
 
-gulp.task('stylesheets', ['sass'], function () {
+gulp.task('stylesheets', ['postcss'], function () {
 	return 	gulp.src([
 				'./wp-theme/build/stylesheets/master.css'
 			])
