@@ -1,6 +1,9 @@
-/node_modules/
 .DS_Store
-/wp-content/*
-!/wp-content/themes
+/node_modules/
 /vendor/
 .env
+/wp-content/*
+!/wp-content/themes
+!/wp-content/plugins
+!/wp-content/uploads
+!/wp-content/index.php
