@@ -1,0 +1,20 @@
+{
+    "name": "alphaweblab/boilerplate-wordpress-tailwind",
+    "description": "A boilerplate to get started for WordPress theme projects using Tailwind CSS.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alpha Weblab",
+            "email": "domains@alphaweblab.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "vlucas/phpdotenv": "^2.4"
+    },
+	"scripts": {
+		"post-update-cmd": "@php wp-salt.php",
+		"post-install-cmd": "@php wp-salt.php"
+	}
+}

@@ -1,5 +1,6 @@
-node_modules
+/node_modules/
 .DS_Store
 /wp-content/*
 !/wp-content/themes
-wp-config.php
+/vendor/
+.env
