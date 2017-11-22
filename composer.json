@@ -8,13 +8,22 @@
             "email": "domains@alphaweblab.com"
         }
     ],
+	"repositories": [
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
     "minimum-stability": "stable",
     "require": {},
     "require-dev": {
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+		"wpackagist-plugin/pods":"*",
+		"wpackagist-plugin/simple-custom-post-order":"*",
+		"wpackagist-plugin/advanced-custom-fields":"*"
     },
 	"scripts": {
-		"post-update-cmd": "@php wp-salt.php",
-		"post-install-cmd": "@php wp-salt.php"
+		"pre-install-cmd": "@php wp-pre-install.php",
+		"post-install-cmd": "@php wp-post-install.php"
 	}
 }
