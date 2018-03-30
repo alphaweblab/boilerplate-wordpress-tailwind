@@ -1,0 +1,108 @@
+.g-grid {
+	@apply flex flex-wrap px-4;
+	.g-grid {
+		@apply px-0 -mx-4;
+	}
+	&.gutter-none {
+		@apply px-0 mx-0;
+	}
+	&.gutter-none .g-grid {
+		@apply mx-0;
+	}
+	&.gutter-none .g-cell {
+		@apply px-0;
+	}
+	&.container-left {
+		@apply mr-auto;
+	}
+	&.container-right {
+		@apply ml-auto;
+	}
+	&.container-center {
+		@apply mx-auto;
+	}
+}
+
+.g-grid > .g-cell {
+	@apply flex-no-grow flex-no-shrink px-4 w-full;
+}
+
+@screen sm {
+	.g-grid.type-fixed {width: config('packages.grid.containers.sm');}
+	.g-grid.type-fluid {width: 100%;}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.sm\:column-#{$i} {
+			width: ((100 / 12) * $i) * 1%;
+		}
+	}
+	@for $i from 1 through 100 {
+		.g-grid > .g-cell.sm\:percent-#{$i} {
+			width: ($i * 1%);
+		}
+	}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.sm\:offset-#{$i} {
+			margin-left: (($i * 100) / 12) * 1%;
+		}
+	}
+}
+
+@screen md {
+	.g-grid.type-fixed {width: config('packages.grid.containers.md');}
+	.g-grid.type-fluid {width: 100%;}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.md\:column-#{$i} {
+			width: ((100 / 12) * $i) * 1%;
+		}
+	}
+	@for $i from 1 through 100 {
+		.g-grid > .g-cell.md\:percent-#{$i} {
+			width: ($i * 1%);
+		}
+	}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.md\:offset-#{$i} {
+			margin-left: (($i * 100) / 12) * 1%;
+		}
+	}
+}
+
+@screen lg {
+	.g-grid.type-fixed {width: config('packages.grid.containers.lg');}
+	.g-grid.type-fluid {width: 100%;}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.lg\:column-#{$i} {
+			width: ((100 / 12) * $i) * 1%;
+		}
+	}
+	@for $i from 1 through 100 {
+		.g-grid > .g-cell.lg\:percent-#{$i} {
+			width: ($i * 1%);
+		}
+	}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.lg\:offset-#{$i} {
+			margin-left: (($i * 100) / 12) * 1%;
+		}
+	}
+}
+
+@screen xl {
+	.g-grid.type-fixed {width: config('packages.grid.containers.xl');}
+	.g-grid.type-fluid {width: 100%;}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.xl\:column-#{$i} {
+			width: ((100 / 12) * $i) * 1%;
+		}
+	}
+	@for $i from 1 through 100 {
+		.g-grid > .g-cell.xl\:percent-#{$i} {
+			width: ($i * 1%);
+		}
+	}
+	@for $i from 1 through 12 {
+		.g-grid > .g-cell.xl\:offset-#{$i} {
+			margin-left: (($i * 100) / 12) * 1%;
+		}
+	}
+}

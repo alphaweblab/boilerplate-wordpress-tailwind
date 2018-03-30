@@ -1,6 +1,6 @@
 {
 	"name": "boilerplate-wordpress-tailwind",
-	"version": "0.2.0",
+	"version": "0.2.3",
 	"description": "A boilerplate to get started for WordPress theme projects.",
 	"main": "build/index.php",
 	"scripts": {
@@ -17,18 +17,18 @@
 	},
 	"homepage": "https://gitlab.com/alphaweblab/boilerplate-wordpress#README",
 	"devDependencies": {
-		"browser-sync": "^2.18.12",
-		"gulp": "^3.9.1",
-		"gulp-autoprefixer": "^4.0.0",
-		"gulp-clean": "^0.3.2",
+		"browser-sync": "^2.23.6",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^5.0.0",
+		"gulp-clean": "^0.4.0",
 		"gulp-concat": "^2.6.1",
-		"gulp-copy": "0.0.2",
-		"gulp-imagemin": "^3.3.0",
-		"gulp-minifier": "^0.1.4",
-		"gulp-postcss": "^7.0.0",
-		"gulp-sass": "^3.1.0",
+		"gulp-copy": "1.1.0",
+		"gulp-imagemin": "^4.1.0",
+		"gulp-minifier": "^1.2.2",
+		"gulp-postcss": "^7.0.1",
+		"gulp-sass": "^3.2.1",
 		"gulp-tinypng": "^1.0.2",
-		"jquery": "^3.2.1",
-		"tailwindcss": "^0.1.4"
+		"jquery": "^3.3.1",
+		"tailwindcss": "^0.4.2"
 	}
 }
