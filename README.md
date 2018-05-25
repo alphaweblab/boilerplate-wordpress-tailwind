@@ -11,22 +11,26 @@ A boilerplate to get started for WordPress theme projects using Tailwind CSS.
 
 `cd phoenix-laser-solutions`
 
-3. Run composer to install dependencies.
+3. Checkout to `dev` to continue development.
+
+`git checkout dev`
+
+4. Run composer to install dependencies.
 
 `composer install`
 
-4. Run yarn or npm to install front-end dependencies.
+5. Run yarn or npm to install front-end dependencies.
 
 `yarn` or `npm install`
 
-5. Create an empty database in local mysql server and update the credentials in `.env` file.
+6. Create an empty database in local mysql server and update the credentials in `.env` file.
 
-6. Open `http://localhost/phoenix-laser-solutions` in browser to continue the installation.
+7. Open `http://localhost/phoenix-laser-solutions` in browser to continue the installation.
 
-7. Use the settings and credentials sent over Slack and complete the installation.
+8. Use the settings and credentials sent over Slack and complete the installation.
 
-8. After the installation is complete, login to WordPress dashboard, go to Appearance -> Themes and activate "Boilerplate Theme"
+9. After the installation is complete, login to WordPress dashboard, go to Appearance -> Themes and activate "Boilerplate Theme"
 
-9. Run gulp task to start the build process
+10. Run gulp task to start the build process
 
 `gulp watch`
