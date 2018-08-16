@@ -17,10 +17,14 @@
     "minimum-stability": "stable",
     "require": {},
     "require-dev": {
-        "vlucas/phpdotenv": "^2.4",
-		"wpackagist-plugin/pods":"*",
-		"wpackagist-plugin/simple-custom-post-order":"*",
-		"wpackagist-plugin/advanced-custom-fields":"*"
+        "vlucas/phpdotenv": "^2.5",
+		"wpackagist-plugin/pods": "*",
+		"wpackagist-plugin/simple-custom-post-order": "*",
+        "wpackagist-plugin/advanced-custom-fields": "*",
+        "wpackagist-plugin/wordpress-seo": "*",
+        "wpackagist-plugin/w3-total-cache": "*",
+        "wpackagist-plugin/host-analyticsjs-local": "*",
+        "wpackagist-plugin/autoptimize": "*"
     },
 	"scripts": {
 		"pre-install-cmd": "@php wp-pre-install.php",

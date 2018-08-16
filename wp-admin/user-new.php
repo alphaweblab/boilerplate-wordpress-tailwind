@@ -12,14 +12,14 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 if ( is_multisite() ) {
 	if ( ! current_user_can( 'create_users' ) && ! current_user_can( 'promote_users' ) ) {
 		wp_die(
-			'<h1>' . __( 'Cheatin&#8217; uh?' ) . '</h1>' .
+			'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
 			'<p>' . __( 'Sorry, you are not allowed to add users to this network.' ) . '</p>',
 			403
 		);
 	}
 } elseif ( ! current_user_can( 'create_users' ) ) {
 	wp_die(
-		'<h1>' . __( 'Cheatin&#8217; uh?' ) . '</h1>' .
+		'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
 		'<p>' . __( 'Sorry, you are not allowed to create users.' ) . '</p>',
 		403
 	);
@@ -52,7 +52,7 @@ if ( isset($_REQUEST['action']) && 'adduser' == $_REQUEST['action'] ) {
 
 	if ( ! current_user_can( 'promote_user', $user_details->ID ) ) {
 		wp_die(
-			'<h1>' . __( 'Cheatin&#8217; uh?' ) . '</h1>' .
+			'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
 			'<p>' . __( 'Sorry, you are not allowed to add users to this network.' ) . '</p>',
 			403
 		);
@@ -75,7 +75,7 @@ if ( isset($_REQUEST['action']) && 'adduser' == $_REQUEST['action'] ) {
 				$redirect = add_query_arg( array( 'update' => 'could_not_add' ), 'user-new.php' );
 			}
 		} else {
-			$newuser_key = substr( md5( $user_id ), 0, 5 );
+			$newuser_key = wp_generate_password( 20, false );
 			add_option( 'new_user_' . $newuser_key, array( 'user_id' => $user_id, 'email' => $user_details->user_email, 'role' => $_REQUEST[ 'role' ] ) );
 
 			$roles = get_editable_roles();
@@ -118,7 +118,7 @@ Please click the following link to confirm the invite:
 
 	if ( ! current_user_can( 'create_users' ) ) {
 		wp_die(
-			'<h1>' . __( 'Cheatin&#8217; uh?' ) . '</h1>' .
+			'<h1>' . __( 'You need a higher level of permission.' ) . '</h1>' .
 			'<p>' . __( 'Sorry, you are not allowed to create users.' ) . '</p>',
 			403
 		);

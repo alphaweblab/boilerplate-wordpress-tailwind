@@ -1,21 +1,23 @@
 {
 	"name": "boilerplate-wordpress-tailwind",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"description": "A boilerplate to get started for WordPress theme projects.",
 	"main": "build/index.php",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "gulp build",
+		"watch": "gulp watch"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/alphaweblab/boilerplate-wordpress.git"
+		"url": "git+https://gitlab.com/alphaweblab/boilerplate-wordpress-tailwind.git"
 	},
 	"author": "Alpha Weblab",
 	"license": "",
 	"bugs": {
-		"url": "https://gitlab.com/alphaweblab/boilerplate-wordpress/issues"
+		"url": "https://gitlab.com/alphaweblab/boilerplate-wordpress-tailwind/issues"
 	},
-	"homepage": "https://gitlab.com/alphaweblab/boilerplate-wordpress#README",
+	"homepage": "https://gitlab.com/alphaweblab/boilerplate-wordpress-tailwind#README",
 	"devDependencies": {
 		"browser-sync": "^2.23.6",
 		"gulp": "^4.0.0",
@@ -25,10 +27,10 @@
 		"gulp-copy": "1.1.0",
 		"gulp-imagemin": "^4.1.0",
 		"gulp-minifier": "^1.2.2",
-		"gulp-postcss": "^7.0.1",
-		"gulp-sass": "^3.2.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-sass": "^4.0.1",
 		"gulp-tinypng": "^1.0.2",
 		"jquery": "^3.3.1",
-		"tailwindcss": "^0.4.2"
+		"tailwindcss": "^0.6.5"
 	}
 }

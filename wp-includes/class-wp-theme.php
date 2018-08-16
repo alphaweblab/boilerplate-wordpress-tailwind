@@ -984,34 +984,10 @@ final class WP_Theme implements ArrayAccess {
 	 *               being absolute paths.
 	 */
 	public function get_files( $type = null, $depth = 0, $search_parent = false ) {
-		// get and cache all theme files to start with.
-		$label = sanitize_key( 'files_' . $this->cache_hash . '-' . $this->get( 'Version' ) );
-		$transient_key = substr( $label, 0, 29 ) . md5( $label );
+		$files = (array) self::scandir( $this->get_stylesheet_directory(), $type, $depth );
 
-		$all_files = get_transient( $transient_key );
-		if ( false === $all_files ) {
-			$all_files = (array) self::scandir( $this->get_stylesheet_directory(), null, -1 );
-
-			if ( $search_parent && $this->parent() ) {
-				$all_files += (array) self::scandir( $this->get_template_directory(), null, -1 );
-			}
-
-			set_transient( $transient_key, $all_files, HOUR_IN_SECONDS );
-		}
-
-		// Filter $all_files by $type & $depth.
-		$files = array();
-		if ( $type ) {
-			$type = (array) $type;
-			$_extensions = implode( '|', $type );
-		}
-		foreach ( $all_files as $key => $file ) {
-			if ( $depth >= 0 && substr_count( $key, '/' ) > $depth ) {
-				continue; // Filter by depth.
-			}
-			if ( ! $type || preg_match( '~\.(' . $_extensions . ')$~', $file ) ) { // Filter by type.
-				$files[ $key ] = $file;
-			}
+		if ( $search_parent && $this->parent() ) {
+			$files += (array) self::scandir( $this->get_template_directory(), $type, $depth );
 		}
 
 		return $files;
@@ -1094,6 +1070,19 @@ final class WP_Theme implements ArrayAccess {
 		/**
 		 * Filters list of page templates for a theme.
 		 *
+		 * @since 4.9.6
+		 *
+		 * @param string[]     $post_templates Array of page templates. Keys are filenames,
+		 *                                     values are translated names.
+		 * @param WP_Theme     $this           The theme object.
+		 * @param WP_Post|null $post           The post being edited, provided for context, or null.
+		 * @param string       $post_type      Post type to get the templates for.
+		 */
+		$post_templates = (array) apply_filters( 'theme_templates', $post_templates, $this, $post, $post_type );
+
+		/**
+		 * Filters list of page templates for a theme.
+		 *
 		 * The dynamic portion of the hook name, `$post_type`, refers to the post type.
 		 *
 		 * @since 3.9.0
@@ -1106,7 +1095,9 @@ final class WP_Theme implements ArrayAccess {
 		 * @param WP_Post|null $post           The post being edited, provided for context, or null.
 		 * @param string       $post_type      Post type to get the templates for.
 		 */
-		return (array) apply_filters( "theme_{$post_type}_templates", $post_templates, $this, $post, $post_type );
+		$post_templates = (array) apply_filters( "theme_{$post_type}_templates", $post_templates, $this, $post, $post_type );
+
+		return $post_templates;
 	}
 
 	/**
