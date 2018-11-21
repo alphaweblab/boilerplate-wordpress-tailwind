@@ -21,16 +21,16 @@
 	"devDependencies": {
 		"browser-sync": "^2.23.6",
 		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^5.0.0",
+		"gulp-autoprefixer": "^6.0.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-concat": "^2.6.1",
-		"gulp-copy": "1.1.0",
-		"gulp-imagemin": "^4.1.0",
+		"gulp-copy": "4.0.1",
+		"gulp-imagemin": "^5.0.3",
 		"gulp-minifier": "^1.2.2",
 		"gulp-postcss": "^8.0.0",
 		"gulp-sass": "^4.0.1",
 		"gulp-tinypng": "^1.0.2",
 		"jquery": "^3.3.1",
-		"tailwindcss": "^0.6.5"
+		"tailwindcss": "^0.7.2"
 	}
 }
