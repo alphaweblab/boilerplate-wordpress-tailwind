@@ -1,6 +1,6 @@
 {
 	"name": "boilerplate-wordpress-tailwind",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "A boilerplate to get started for WordPress theme projects.",
 	"main": "build/index.php",
 	"scripts": {
